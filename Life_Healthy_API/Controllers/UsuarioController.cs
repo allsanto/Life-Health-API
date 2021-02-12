@@ -60,56 +60,20 @@ namespace Life_Healthy_API.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserLoginRequest userLoginRequest)
+        public ActionResult<dynamic> Authenticate([FromBody] UserLoginRequest userLoginRequest)
         {
-            // Recupera o usuário
-            // var usuarioResponse = _usuarioBL.GetById(id);
             var user = _usuarioBL.GetUserLogin(userLoginRequest);
 
-            // Verifica se o usuário existe
             if (user == null)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
 
-            // Gera o Token
             var token = TokenService.GenerateToken(userLoginRequest);
 
-            // Oculta a senha
-            userLoginRequest.Senha = "";
-
-            // Retorna os dados
             return new
             {
                 userLogin = user,
                 token = token
             };
         }
-
-        //[HttpPost]
-        //[Route("login")]
-        //[AllowAnonymous]
-        //public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
-        //{
-        //    // Recupera o usuário
-        //    // var usuarioResponse = _usuarioBL.GetById(id);
-        //    var user = _usuarioBL.Login(model);
-
-        //    // Verifica se o usuário existe
-        //    if (user == null)
-        //        return NotFound(new { message = "Usuário ou senha inválidos" });
-
-        //    // Gera o Token
-        //    var token = TokenService.GenerateToken(user);
-
-        //    // Oculta a senha
-        //    user.Senha = "";
-
-        //    // Retorna os dados
-        //    return new
-        //    {
-        //        user = user,
-        //        token = token
-        //    };
-        //}
-
     }
 }

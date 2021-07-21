@@ -39,3 +39,44 @@ C:\Projetos\Life_Healthy_API\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcore
 C:\Projetos\Life_Healthy_API\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Projetos\Life_Healthy_API\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Projetos\Life_Healthy_API\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.exe
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.deps.json
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.runtimeconfig.json
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.runtimeconfig.dev.json
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.pdb
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Npgsql.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.csproj.AssemblyReference.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.AssemblyInfoInputs.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.AssemblyInfo.cs
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.csproj.CoreCompileInputs.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\staticwebassets\Life_Healthy_API.StaticWebAssets.Manifest.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\staticwebassets\Life_Healthy_API.StaticWebAssets.xml
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\scopedcss\bundle\Life_Healthy_API.styles.css
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.RazorTargetAssemblyInfo.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.csproj.CopyComplete
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.dll
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.pdb
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.genruntimeconfig.cache

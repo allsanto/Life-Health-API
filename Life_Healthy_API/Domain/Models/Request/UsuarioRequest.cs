@@ -4,7 +4,6 @@ namespace Life_Healthy_API.Domain.Models.Request
 {
     public class UsuarioRequest
     {
-        public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public decimal Altura { get; set; }

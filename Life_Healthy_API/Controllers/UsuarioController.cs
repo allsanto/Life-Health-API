@@ -1,16 +1,10 @@
 ﻿using Life_Healthy_API.Business;
-using Life_Healthy_API.Data.Entities;
-using Life_Healthy_API.Domain.Models;
 using Life_Healthy_API.Domain.Models.Request;
 using Life_Healthy_API.Domain.Models.Response;
 using Life_Healthy_API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Life_Healthy_API.Controllers
 {
@@ -24,23 +18,57 @@ namespace Life_Healthy_API.Controllers
         }
 
         /// <summary>
-        /// Cadastro de Usuarios
+        /// Fazer Login
+        /// </summary>
+        /// <param name="userLoginRequest">JSON</param>
+        /// <returns>JSON</returns>
+        // Fazer Login
+        [HttpPost]
+        [Route("login")]
+        [AllowAnonymous]
+        public ActionResult<dynamic> Authenticate([FromBody] UserLoginRequest userLoginRequest)
+        {
+            var user = _usuarioBL.GetUserLogin(userLoginRequest);
+
+            if (user == null)
+                return NotFound(new { message = "Usuário ou senha inválidos." });
+
+            var token = TokenService.GenerateToken(userLoginRequest);
+
+            return new
+            {
+                userLogin = user,
+                accessToken = token
+            };
+        }
+
+        /// <summary>
+        /// Cadastrar alunos
         /// </summary>
         /// <param name="usuarioRequest">JSON</param>
         /// <returns>JSON</returns>
-        // Função para cadastrar Usuarios
+        // Função para cadastro de aluno
         [HttpPost]
         [Route("insert")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         public IActionResult Post([FromBody] UsuarioRequest usuarioRequest) 
         {
+            var userCheck = _usuarioBL.VerificaSeUsuarioExiste(usuarioRequest.Email);
+            if (userCheck != null)
+            {
+                return NotFound(new Response { Message = "Usuario ja cadastrado." });
+            }
+
             var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
             return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
         }
 
+
         [HttpGet]
         [Route("get/{id}")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(UsuarioResponse), StatusCodes.Status200OK)] // Retorna o statuscode
         [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)] // Retorna o statuscode
         public IActionResult GetById(int id)
@@ -55,25 +83,6 @@ namespace Life_Healthy_API.Controllers
             {
                 return NotFound(new Response { Message = "Nenhum usuario foi encontrado." });
             }
-        }
-
-        [HttpPost]
-        [Route("login")]
-        [AllowAnonymous]
-        public ActionResult<dynamic> Authenticate([FromBody] UserLoginRequest userLoginRequest)
-        {
-            var user = _usuarioBL.GetUserLogin(userLoginRequest);
-
-            if (user == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
-
-            var token = TokenService.GenerateToken(userLoginRequest);
-
-            return new
-            {
-                userLogin = user,
-                token = token
-            };
         }
     }
 }

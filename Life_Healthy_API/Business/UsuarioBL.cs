@@ -21,17 +21,24 @@ namespace Life_Healthy_API.Business
         public int InsertUserBL(UsuarioRequest userReq) 
         {
             var usuarioEntity = _mapper.Map<UsuarioEntity>(userReq);
-
             var idUsuario = _usuarioRepository.InserirUsuario(usuarioEntity);
             return idUsuario;
+        }
+
+        public UserLoginResponse VerificaSeUsuarioExiste(string user)
+        {
+            var returnUser = _usuarioRepository.GetUserCheck(user);
+            var userEntity = _mapper.Map<UserLoginResponse>(returnUser);
+
+            return userEntity;
         }
 
         public UsuarioResponse GetById(int id) 
         {
             var usuarioEntity = _usuarioRepository.GetUsuario(id);
-            var alunoResponse = _mapper.Map<UsuarioResponse>(usuarioEntity);
+            var userResponse = _mapper.Map<UsuarioResponse>(usuarioEntity);
 
-            return alunoResponse;
+            return userResponse;
         }
         #endregion
 

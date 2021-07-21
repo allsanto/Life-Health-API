@@ -1,5 +1,4 @@
-﻿using Life_Healthy_API.Domain.Models;
-using Life_Healthy_API.Domain.Models.Request;
+﻿using Life_Healthy_API.Domain.Models.Request;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;

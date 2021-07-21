@@ -2,6 +2,6 @@
 {
     public class UsuarioUpdateRequest : UsuarioRequest
     {
-        public int IdUsuario { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

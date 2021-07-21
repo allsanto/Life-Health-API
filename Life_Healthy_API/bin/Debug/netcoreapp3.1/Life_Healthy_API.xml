@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Life_Healthy_API.API</name>
+    </assembly>
+    <members>
+        <member name="M:Life_Healthy_API.API.Controllers.UsuarioController.Post(Life_Healthy_API.API.Domain.Models.Request.UserLoginRequest)">
+            <summary>
+            Fazer Login
+            </summary>
+            <param name="userLoginRequest">JSON</param>
+            <returns>JSON</returns>
+        </member>
+    </members>
+</doc>

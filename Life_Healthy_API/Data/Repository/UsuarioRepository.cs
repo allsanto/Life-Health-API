@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using Life_Healthy_API.Data.Entities;
-using Life_Healthy_API.Domain.Models;
 using Microsoft.Extensions.Configuration;
 
 
@@ -18,7 +17,7 @@ namespace Life_Healthy_API.Data.Repository
         {
             using var db = Connection;
 
-            var query = @"INSERT INTO usuarios
+            var query = @"INSERT INTO usuario
                                 (nome,
                                  data_nascimento,
                                  altura,
@@ -52,17 +51,17 @@ namespace Life_Healthy_API.Data.Repository
         {
             using var db = Connection;
 
-            var query = @"SELECT usuario_id
+            var query = @"SELECT usuario_id,
                                  nome,
                                  data_nascimento,
-                                 altura
+                                 altura,
                                  genero,
                                  email,
                                  senha,
                                  confi_senha,
                                  status
-                         FROM Usuarios
-                            WHERE usuario_id = @email;";
+                         FROM Usuario
+                            WHERE usuario_id = @id;";
 
             return db.QueryFirstOrDefault<UsuarioEntity>(query, new { id });
         }
@@ -74,11 +73,22 @@ namespace Life_Healthy_API.Data.Repository
             var query = @"SELECT usuario_id,
                                  nome,
                                  email
-                         FROM Usuarios
+                         FROM Usuario
                             WHERE email = @email
                                 AND senha = @senha;";
 
             return db.QueryFirstOrDefault<UsuarioEntity>(query, new { email, senha });
+        }
+
+        public UsuarioEntity GetUserCheck(string email)
+        {
+            using var db = Connection;
+
+            var query = @"SELECT usuario_id
+                          FROM Usuario
+                            WHERE email = @email";
+
+            return db.QueryFirstOrDefault<UsuarioEntity>(query, new { email });
         }
     }
 }

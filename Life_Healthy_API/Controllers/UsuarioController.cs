@@ -59,13 +59,13 @@ namespace Life_Healthy_API.Controllers
 
             if (userCheck != null)
             {
-                return BadRequest(new Response { Message = "Usuario ja cadastrado." });
+                return BadRequest(new Errors { errors = "Usuario ja cadastrado." });
             }
             try
             {
                 var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
                 //return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
-                return Ok(new Response { Message = "Usuario cadastrado com sucesso!." });
+                return Ok(new Errors { errors = "Usuario cadastrado com sucesso!." });
             }
             catch (System.Exception ex)
             {
@@ -95,14 +95,6 @@ namespace Life_Healthy_API.Controllers
             {
                 return NotFound(new Response { Message = "Nenhum usuario foi encontrado." });
             }
-        }
-
-        [HttpPost]
-        [Route("sendEmailRestorePassword")]
-        [AllowAnonymous]
-        public IActionResult SendEmailRestorePassword(string email)
-        {
-
         }
     }
 }

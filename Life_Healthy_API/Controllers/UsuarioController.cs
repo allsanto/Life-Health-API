@@ -51,7 +51,7 @@ namespace Life_Healthy_API.Controllers
         [HttpPost]
         [Route("insert")]
         [AllowAnonymous]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         public IActionResult Post([FromBody] UsuarioRequest usuarioRequest) 
         {
@@ -64,7 +64,8 @@ namespace Life_Healthy_API.Controllers
             try
             {
                 var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
-                return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
+                //return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
+                return Ok(new Response { Message = "Usuario cadastrado com sucesso!." });
             }
             catch (System.Exception ex)
             {

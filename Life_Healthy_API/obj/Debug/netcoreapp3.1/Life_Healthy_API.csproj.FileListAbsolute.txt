@@ -80,3 +80,5 @@ C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healt
 C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.dll
 C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.pdb
 C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.genruntimeconfig.cache
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\bin\Debug\netcoreapp3.1\Life_Healthy_API.xml
+C:\Users\Allan\Google Drive\PROJETOS\32 - LifeHealth\Life_Healthy_API\Life_Healthy_API\obj\Debug\netcoreapp3.1\Life_Healthy_API.xml

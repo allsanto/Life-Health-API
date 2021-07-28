@@ -25,9 +25,9 @@ namespace Life_Healthy_API.Business
         {
             var idUser = _userRepository.GetUsuario(food.UserId);
 
-            if (idUser == null)
+            if (idUser == 0)
             {
-                return 0;
+                return 1;
             }
 
             var foodEntity = _mapper.Map<AlimentoEntity>(food);
@@ -73,7 +73,7 @@ namespace Life_Healthy_API.Business
                 var foodEntity = _mapper.Map<AlimentoEntity>(food);
                 _foodRepository.UpdateFood_DAO(foodEntity);
 
-                return new Response { Message = "Peso atualizado sucesso!"};
+                return new Response { Message = "Alimento atualizado sucesso!"};
             }
         }
     }

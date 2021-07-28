@@ -56,16 +56,27 @@ namespace Life_Healthy_API.Controllers
         public IActionResult Post([FromBody] UsuarioRequest usuarioRequest) 
         {
             var userCheck = _usuarioBL.VerificaSeUsuarioExiste(usuarioRequest.Email);
+
             if (userCheck != null)
             {
-                return NotFound(new Response { Message = "Usuario ja cadastrado." });
+                return BadRequest(new Response { Message = "Usuario ja cadastrado." });
             }
-
-            var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
-            return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
+            try
+            {
+                var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
+                return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-
+        /// <summary>
+        /// Retorna o usuario por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("get/{id}")]
         [AllowAnonymous]
@@ -83,6 +94,14 @@ namespace Life_Healthy_API.Controllers
             {
                 return NotFound(new Response { Message = "Nenhum usuario foi encontrado." });
             }
+        }
+
+        [HttpPost]
+        [Route("sendEmailRestorePassword")]
+        [AllowAnonymous]
+        public IActionResult SendEmailRestorePassword(string email)
+        {
+
         }
     }
 }

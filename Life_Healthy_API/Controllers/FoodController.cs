@@ -9,10 +9,10 @@ using System;
 namespace Life_Healthy_API.Controllers
 {
     [Route("apilife/food")]
-    public class AlimentoController : Controller
+    public class FoodController : Controller
     {
         private readonly FoodBL _foodBL;
-        public AlimentoController(FoodBL food)
+        public FoodController(FoodBL food)
         {
             _foodBL = food;
         }
@@ -31,13 +31,13 @@ namespace Life_Healthy_API.Controllers
         {
             var response = _foodBL.InsertFood_BL(foodRequest);
 
-            if (response != 0)
+            if (response == 1)
             {
-                return Ok("Alimento inserido com Sucesso!");
+                return NotFound(new Response { Message = "Usuário não encontrado!" });
             }
             else
             {
-                return NotFound(new Response { Message = "Usuário não encontrado!" });
+                return Ok("Alimento inserido com sucesso!");
             }
         }
 
@@ -65,8 +65,16 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna todos alimentos de um Usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-        [Route("getgetFoodByUserId/{id}")]
+        [Route("getFoodByUserId/{id}")]
+        [Authorize]
+        [ProducesResponseType(typeof(FoodResponse), StatusCodes.Status200OK)] // Retorna o statuscode
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)] // Retorna o statuscode
         public IActionResult GetFoodByUserId(int id)
         {
             var foodResponse = _foodBL.GetFoodByUserId_BL(id);
@@ -81,8 +89,16 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta alimento
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("delete/{id}")]
+        [Authorize]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)] // Retorna o statuscode
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)] // Retorna o statuscode
         public IActionResult DeleteFood(int id)
         {
             var foodResponse = _foodBL.DeleteFood_BL(id);
@@ -97,8 +113,15 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza alimento
+        /// </summary>
+        /// <param name="food"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("update")]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)]
         public IActionResult UpdateFood([FromBody] FoodUpdateRequest food)
         {
             var foodResponse = _foodBL.UpdateFood_BL(food);

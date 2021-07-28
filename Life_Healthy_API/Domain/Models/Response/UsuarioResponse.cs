@@ -10,7 +10,6 @@ namespace Life_Healthy_API.Domain.Models.Response
         public decimal Altura { get; set; }
         public string Genero { get; set; }
         public string Email { get; set; }
-        public string Senha { get; set; }
         public string ConfiSenha { get; set; }
     }
 }

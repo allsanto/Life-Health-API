@@ -27,9 +27,9 @@ namespace Life_Healthy_API.Business
         {
             var idUser = _userRepository.GetUsuario(weightRequest.UserId);
 
-            if (idUser == null)
+            if (idUser == 0)
             {
-                return 0;
+                return 1;
             }
 
             var weightEntity = _mapper.Map<PesoEntity>(weightRequest);

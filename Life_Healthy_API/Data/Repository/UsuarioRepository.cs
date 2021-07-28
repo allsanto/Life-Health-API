@@ -47,7 +47,7 @@ namespace Life_Healthy_API.Data.Repository
         }
         #endregion
 
-        public UsuarioEntity GetUsuario(int id) 
+        public int GetUsuario(int id) 
         {
             using var db = Connection;
 
@@ -63,7 +63,7 @@ namespace Life_Healthy_API.Data.Repository
                          FROM Usuario
                             WHERE usuario_id = @id;";
 
-            return db.QueryFirstOrDefault<UsuarioEntity>(query, new { id });
+            return db.QueryFirstOrDefault<int>(query, new { id });
         }
 
         public UsuarioEntity GetLoginUsuario(string email, string senha)

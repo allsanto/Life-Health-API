@@ -25,7 +25,7 @@ namespace Life_Healthy_API.Controllers
         /// <param name="weightRequest"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("weight")]
+        [Route("insert")]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
@@ -33,13 +33,13 @@ namespace Life_Healthy_API.Controllers
         {
             var response = _weightBL.InsertWeight_BL(weightRequest);
 
-            if (response != 0)
+            if (response == 1)
             {
-                return Ok("Peso inserido com Sucesso!");
+                return NotFound(new Response { Message = "Usuário não encontrado!" });
             }
             else
             {
-                return NotFound(new Response { Message = "Usuário não encontrado!" });
+                return Ok("Peso inserido com Sucesso!");
             }
         }
 
@@ -51,8 +51,8 @@ namespace Life_Healthy_API.Controllers
         [HttpGet]
         [Route("getWeightById/{id}")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(WeightResponse), StatusCodes.Status200OK)] // Retorna o statuscode
-        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)] // Retorna o statuscode
+        [ProducesResponseType(typeof(WeightResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)]
         public IActionResult GetWeightById(int id)
         {
             var weightResponse = _weightBL.GetWeightById_BL(id);
@@ -67,8 +67,16 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna pesos pelo ID do Usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-        [Route("getgetWeightByUserId/{id}")]
+        [Route("getWeightByUserId/{id}")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(WeightResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)]
         public IActionResult GetWeightByUserId(int id)
         {
             var weightResponse = _weightBL.GetWeightByUserId_BL(id);
@@ -83,8 +91,16 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta um peso
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("delete/{id}")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)]
         public IActionResult DeleteWeight(int id)
         {
             var weightResponse = _weightBL.DeleteWheight_BL(id);
@@ -99,8 +115,15 @@ namespace Life_Healthy_API.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza peso
+        /// </summary>
+        /// <param name="weight"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("update")]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status404NotFound)]
         public IActionResult UpdateWeight([FromBody] WeightUpdateRequest weight)
         {
             var weightResponse = _weightBL.UpdateWeight_BL(weight);

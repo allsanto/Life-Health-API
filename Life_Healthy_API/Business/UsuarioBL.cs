@@ -36,7 +36,7 @@ namespace Life_Healthy_API.Business
         public UsuarioResponse GetById(int id) 
         {
             var usuarioEntity = _usuarioRepository.GetUsuario(id);
-            var userResponse = _mapper.Map<UsuarioResponse>(usuarioEntity);
+            var userResponse = _mapper.Map<UsuarioResponse>(usuarioEntity.UsuarioId);
 
             return userResponse;
         }

@@ -31,13 +31,13 @@ namespace Life_Healthy_API.Controllers
         {
             var response = _foodBL.InsertFood_BL(foodRequest);
 
-            if (response == 1)
+            if (response != 0)
             {
-                return NotFound(new Response { Message = "Usuário não encontrado!" });
+                return Ok(new Response { Message = "Alimento inserido com sucesso!" });
             }
             else
             {
-                return Ok("Alimento inserido com sucesso!");
+                return NotFound(new Errors { errors = "Usuário não encontrado!" });
             }
         }
 
@@ -61,7 +61,7 @@ namespace Life_Healthy_API.Controllers
             }
             else
             {
-                return NotFound(new Response { Message = "Nenhum alimento encontrado." });
+                return NotFound(new Errors { errors = "Nenhum alimento encontrado." });
             }
         }
 
@@ -85,7 +85,7 @@ namespace Life_Healthy_API.Controllers
             }
             catch (InvalidCastException)
             {
-                return NotFound(new Response { Message = "Nenhum Peso foi encontrado" });
+                return NotFound(new Errors { errors = "Nenhum Peso foi encontrado" });
             }
         }
 
@@ -105,11 +105,11 @@ namespace Life_Healthy_API.Controllers
 
             if (foodResponse != 0)
             {
-                return Ok("Alimento excluido com sucesso!");
+                return Ok(new Response { Message = "Alimento excluido com sucesso!" });
             }
             else
             {
-                return NotFound(new Response { Message = "Nenhum Alimento foi encontrado" });
+                return NotFound(new Errors { errors = "Nenhum Alimento foi encontrado" });
             }
         }
 
@@ -126,7 +126,12 @@ namespace Life_Healthy_API.Controllers
         {
             var foodResponse = _foodBL.UpdateFood_BL(food);
 
-            return Ok(foodResponse);
+            if (foodResponse.Message == "1")
+            {
+                return Ok(new Response { Message = "Alimento atualizado com sucesso!" });
+            }
+
+            return Ok(new Errors { errors = foodResponse.Message });
 
             //if (weightResponse != null)
             //{

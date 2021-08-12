@@ -10,9 +10,11 @@ namespace Life_Healthy_API.Profiles
         public UsuarioProfile()
         {
             CreateMap<UsuarioRequest, UsuarioEntity>().ReverseMap();
-            CreateMap<UsuarioEntity, UsuarioResponse>().ReverseMap();
             CreateMap<UserLoginResponse, UsuarioEntity>().ReverseMap();
             CreateMap<UsuarioEntity, UserLoginResponse>().ReverseMap();
+
+            CreateMap<UsuarioEntity, UsuarioResponse>().ReverseMap();
+            CreateMap<UsuarioResponse, UsuarioEntity>().ReverseMap();
         }
     }
 }

@@ -53,6 +53,13 @@
             <param name="usuarioRequest">JSON</param>
             <returns>JSON</returns>
         </member>
+        <member name="M:Life_Healthy_API.Controllers.UsuarioController.GetById(System.Int32)">
+            <summary>
+            Retorna o usuario por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:Life_Healthy_API.Controllers.WeightController.InsertWeight(Life_Healthy_API.Domain.Models.Request.WeightRequest)">
             <summary>
             Inserir Peso

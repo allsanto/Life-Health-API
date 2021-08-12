@@ -35,11 +35,11 @@ namespace Life_Healthy_API.Controllers
 
             if (response == 1)
             {
-                return NotFound(new Response { Message = "Usuário não encontrado!" });
+                return NotFound(new Errors { errors = "Usuário não encontrado!" });
             }
             else
             {
-                return Ok("Peso inserido com Sucesso!");
+                return Ok(new Response { Message = "Peso inserido com Sucesso!" });
             }
         }
 
@@ -63,7 +63,7 @@ namespace Life_Healthy_API.Controllers
             }
             else
             {
-                return NotFound(new Response { Message = "Nenhum peso encontrado." });
+                return NotFound(new Errors { errors = "Nenhum peso encontrado." });
             }
         }
 
@@ -87,7 +87,7 @@ namespace Life_Healthy_API.Controllers
             }
             catch (InvalidCastException)
             {
-                return NotFound(new Response { Message = "Nenhum Peso foi encontrado" });
+                return NotFound(new Errors { errors = "Nenhum Peso foi encontrado" });
             }
         }
 
@@ -107,11 +107,11 @@ namespace Life_Healthy_API.Controllers
 
             if (weightResponse != 0)
             {
-                return Ok("Peso excluido com sucesso!");
+                return Ok(new Response { Message = "Peso excluido com sucesso!" });
             }
             else
             {
-                return NotFound(new Response { Message = "Nenhum Peso foi encontrado" });
+                return NotFound(new Errors { errors = "Nenhum Peso foi encontrado" });
             }
         }
 
@@ -127,6 +127,11 @@ namespace Life_Healthy_API.Controllers
         public IActionResult UpdateWeight([FromBody] WeightUpdateRequest weight)
         {
             var weightResponse = _weightBL.UpdateWeight_BL(weight);
+
+            if (weightResponse.Message == "1")
+            {
+                return Ok(new Response { Message = "Peso atualizado com sucesso!" });
+            }
 
             return Ok(weightResponse);
 

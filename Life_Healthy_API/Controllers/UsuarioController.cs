@@ -5,6 +5,8 @@ using Life_Healthy_API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebMatrix.WebData;
+using Windows.ApplicationModel.Email;
 
 namespace Life_Healthy_API.Controllers
 {
@@ -31,7 +33,7 @@ namespace Life_Healthy_API.Controllers
             var user = _usuarioBL.GetUserLogin(userLoginRequest);
 
             if (user == null)
-                return NotFound(new { message = "Usuário ou senha inválidos." });
+                return NotFound(new Errors { errors = "Usuário ou senha inválidos." });
 
             var token = TokenService.GenerateToken(userLoginRequest);
 
@@ -65,11 +67,11 @@ namespace Life_Healthy_API.Controllers
             {
                 var idUsuario = _usuarioBL.InsertUserBL(usuarioRequest);
                 //return CreatedAtAction(nameof(GetById), new { id = idUsuario }, usuarioRequest);
-                return Ok(new Errors { errors = "Usuario cadastrado com sucesso!." });
+                return Ok(new Response { Message = "Usuario cadastrado com sucesso!." });
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
-                return BadRequest(ex.Message);
+                return BadRequest( new Errors { errors = "Erro sistemico contate o administrador!" });
             }
         }
 
@@ -93,8 +95,39 @@ namespace Life_Healthy_API.Controllers
             }
             else
             {
-                return NotFound(new Response { Message = "Nenhum usuario foi encontrado." });
+                return NotFound(new Errors { errors = "Nenhum usuario foi encontrado." });
             }
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(string UserName)
+        {
+            if (ModelState.IsValid)
+            {
+                if (WebSecurity.UserExists(UserName))
+                {
+                    string To = UserName, UserID, Password, SMTPPort, Host;
+                    string token = WebSecurity.GeneratePasswordResetToken(UserName);
+                    if (token == null)
+                    {
+                        // If user does not exist or is not confirmed.
+                        return View("Index");
+                    }
+                    else
+                    {
+                        //Create URL with above token
+                        var lnkHref = "<a href='" + Url.Action("ResetPassword", "Account", new { email = UserName, code = token }, "http") + "'>Reset Password</a>";
+                        //HTML Template for Send email
+                        string subject = "Your changed password";
+                        string body = "<b>Please find the Password Reset Link. </b><br/>" + lnkHref;
+                        //Get and set the AppSettings using configuration manager.
+                        EmailManager.AppSettings(out UserID, out Password, out SMTPPort, out Host);
+                        //Call send email methods.
+                        EmailManager.SendEmail(UserID, subject, body, To, UserID, Password, SMTPPort, Host);
+                    }
+                }
+            }
+            return View();
         }
     }
 }

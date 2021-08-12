@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[4.4.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.78, )"
@@ -56,6 +60,10 @@
               "target": "Package",
               "version": "[5.2.7, )"
             },
+            "Microsoft.AspNet.WebPages.WebData": {
+              "target": "Package",
+              "version": "[3.2.7, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -64,9 +72,17 @@
               "target": "Package",
               "version": "[3.1.9, )"
             },
+            "Microsoft.IdentityModel.Protocols": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.10, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -76,9 +92,21 @@
               "target": "Package",
               "version": "[5.0.1.1, )"
             },
+            "SendGrid.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.0.4, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Uno.UI": {
+              "target": "Package",
+              "version": "[3.9.7, )"
             }
           },
           "imports": [

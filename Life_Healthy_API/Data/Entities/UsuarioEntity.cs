@@ -12,5 +12,6 @@ namespace Life_Healthy_API.Data.Entities
         public string Email { get; set; }
         public string Senha { get; set; }
         public string ConfiSenha { get; set; }
+        public int Status { get; set; }
     }
 }

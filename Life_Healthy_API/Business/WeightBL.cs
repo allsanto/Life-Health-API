@@ -27,7 +27,7 @@ namespace Life_Healthy_API.Business
         {
             var idUser = _userRepository.GetUsuario(weightRequest.UserId);
 
-            if (idUser == 0)
+            if (idUser.UsuarioId == 0)
             {
                 return 1;
             }
@@ -72,8 +72,8 @@ namespace Life_Healthy_API.Business
             }
             else
             {
-                _weightRepository.UpdateWeight_DAO(weight.DateWeigth, weight.Weigth, weight.UserId, weight.PesoId.Value);
-                return new Response { Message = "Peso atualizado!"};
+                var response = _weightRepository.UpdateWeight_DAO(weight.DateWeigth, weight.Weigth, weight.UserId, weight.PesoId.Value);
+                return new Response { Message = response.ToString() };
             }
         }
     }

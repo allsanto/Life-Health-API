@@ -45,6 +45,7 @@ namespace Life_Healthy_API
             services.SwaggerService();
             services.AddFluentValidation();
             services.JWTConfiguration();
+            services.SendGrid();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

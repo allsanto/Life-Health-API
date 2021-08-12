@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SendGrid.Extensions.DependencyInjection;
 using System;
 using System.IO;
 using System.Reflection;
@@ -107,6 +108,16 @@ namespace Life.ServicesCollectionsExtensions
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+            });
+
+            return services;
+        }
+
+        public static IServiceCollection SendGrid(this IServiceCollection services)
+        {
+            services.AddSendGrid(options =>
+            {
+                options.ApiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
             });
 
             return services;

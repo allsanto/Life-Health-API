@@ -25,10 +25,8 @@ namespace Life_Healthy_API.Business
         {
             var idUser = _userRepository.GetUsuario(food.UserId);
 
-            if (idUser == 0)
-            {
-                return 1;
-            }
+            if (idUser.UsuarioId == 1)
+                return 0;
 
             var foodEntity = _mapper.Map<AlimentoEntity>(food);
             var insertFood = _foodRepository.InsertFood_DAO(foodEntity);
@@ -66,15 +64,25 @@ namespace Life_Healthy_API.Business
 
             if (weightID == null || idUser == null)
             {
-                return new Response { Message = (weightID == null ? "Alimento não encontrado!" : "Usuario não encontrado!")};
+                return new Response { Message = (weightID == null ? "Alimento não encontrado!" : "Usuario não encontrado!") };
             }
-            else
-            {
-                var foodEntity = _mapper.Map<AlimentoEntity>(food);
-                _foodRepository.UpdateFood_DAO(foodEntity);
 
-                return new Response { Message = "Alimento atualizado sucesso!"};
-            }
+            var foodEntity = _mapper.Map<AlimentoEntity>(food);
+            var response =_foodRepository.UpdateFood_DAO(foodEntity);
+
+            return new Response { Message = response.ToString() };
+
+            //if (weightID == null || idUser == null)
+            //{
+            //    return new Response { Message = (weightID == null ? "Alimento não encontrado!" : "Usuario não encontrado!")};
+            //}
+            //else
+            //{
+            //    var foodEntity = _mapper.Map<AlimentoEntity>(food);
+            //    _foodRepository.UpdateFood_DAO(foodEntity);
+
+            //    return new Response { Message = "Alimento atualizado sucesso!"};
+            //}
         }
     }
 }
